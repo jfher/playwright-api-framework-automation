@@ -1,16 +1,21 @@
 import { test, expect } from '@fixtures/api.fixture';
 import { credentials } from '@config/credentials';
+import { authErrorSchema } from '@schemas/auth.schema';
+import { validateSchema } from '@utils/schema-validator';
 
 test.describe('Authentication Negative API', () => {
-    test('User should fail with invalid credentials', { tag: ["@auth", "@regression"] }, async ({ request }) => {
+  test(
+    'Invalid credentials should return expected contract',
+    { tag: ['@auth', '@regression', '@negative'] },
+    async ({ request }) => {
+      const response = await request.post('/auth', {
+        data: credentials.invalidUser,
+      });
 
-        const response = await request.post('/auth', {
-            data:
-                credentials.invalidUser
-        }
-        );
+      const body = await response.json();
+      const validatedResponse = validateSchema(authErrorSchema, body);
 
-        const body = await response.json();
-        expect(body.reason).toBe('Bad credentials');
-    });
+      expect(validatedResponse.reason).toBe('Bad credentials');
+    },
+  );
 });

@@ -6,35 +6,16 @@
     "strict": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
-    "types": [
-      "node",
-      "@playwright/test"
-    ],
+    "types": ["node", "@playwright/test"],
     "baseUrl": ".",
     "paths": {
-      "@config/*": [
-        "src/config/*"
-      ],
-      "@api/*": [
-        "src/api/*"
-      ],
-      "@models/*": [
-        "src/models/*"
-      ],
-      "@schemas/*": [
-        "src/schemas/*"
-      ],
-      "@utils/*": [
-        "src/utils/*"
-      ],
-      "@fixtures/*": [
-        "src/fixtures/*"
-      ]
+      "@config/*": ["src/config/*"],
+      "@api/*": ["src/api/*"],
+      "@models/*": ["src/models/*"],
+      "@schemas/*": ["src/schemas/*"],
+      "@utils/*": ["src/utils/*"],
+      "@fixtures/*": ["src/fixtures/*"]
     }
   },
-  "include": [
-    "src/**/*.ts",
-    "tests/**/*.ts",
-    "playwright.config.ts"
-  ]
+  "include": ["src/**/*.ts", "tests/**/*.ts", "playwright.config.ts"]
 }

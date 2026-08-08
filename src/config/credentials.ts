@@ -1,13 +1,13 @@
-import { environment } from "./environment";
+import { environment } from './environment';
 
 export const credentials = {
-    validUser: {
-        username: environment.username,
-        password: environment.password
-    },
+  validUser: {
+    username: environment.username,
+    password: environment.password,
+  },
 
-    invalidUser: {
-        username: environment.username,
-        password: 'wrongPassword'
-    }
+  invalidUser: {
+    username: environment.username,
+    password: 'wrongPassword',
+  },
 };

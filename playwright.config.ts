@@ -8,15 +8,12 @@ export default defineConfig({
   forbidOnly: !!process.env.CI,
   retries: process.env.CI ? 2 : 0,
 
-  reporter: [
-    ['html'],
-    ['allure-playwright']
-  ],
+  reporter: [['html'], ['allure-playwright']],
 
   use: {
     baseURL: environment.baseUrl,
     headless: environment.headless,
     trace: 'on-first-retry',
-    screenshot: 'only-on-failure'
-  }
+    screenshot: 'only-on-failure',
+  },
 });

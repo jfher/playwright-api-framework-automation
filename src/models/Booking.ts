@@ -1,18 +1,18 @@
 export interface BookingDates {
-    checkin: string;
-    checkout: string;
+  checkin: string;
+  checkout: string;
 }
 
 export interface Booking {
-    firstname: string;
-    lastname: string;
-    totalprice: number;
-    depositpaid: boolean;
-    bookingdates: BookingDates;
-    additionalneeds?: string;
+  firstname: string;
+  lastname: string;
+  totalprice: number;
+  depositpaid: boolean;
+  bookingdates: BookingDates;
+  additionalneeds?: string;
 }
 
 export interface BookingResponse {
-    bookingid: number;
-    booking: Booking;
+  bookingid: number;
+  booking: Booking;
 }
