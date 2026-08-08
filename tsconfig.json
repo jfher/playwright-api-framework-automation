@@ -26,6 +26,9 @@
       ],
       "@utils/*": [
         "src/utils/*"
+      ],
+      "@fixtures/*": [
+        "src/fixtures/*"
       ]
     }
   },
