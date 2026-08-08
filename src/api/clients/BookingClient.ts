@@ -9,7 +9,6 @@ export class BookingClient extends ApiClient {
 
   async createBooking(booking: Booking): Promise<BookingResponse> {
     const response = await this.post('/booking', booking);
-
     return response.json();
   }
 
@@ -19,7 +18,6 @@ export class BookingClient extends ApiClient {
 
   async getBooking(bookingId: number): Promise<Booking> {
     const response = await this.get(`/booking/${bookingId}`);
-
     return response.json();
   }
 
@@ -29,7 +27,6 @@ export class BookingClient extends ApiClient {
 
   async getBookings(): Promise<Booking[]> {
     const response = await this.get(`/booking`);
-
     return response.json();
   }
 
@@ -39,7 +36,6 @@ export class BookingClient extends ApiClient {
 
   async updateBooking(bookingId: number, booking: Booking, token: string): Promise<Booking> {
     const response = await this.put(`/booking/${bookingId}`, booking, token);
-
     return response.json();
   }
 

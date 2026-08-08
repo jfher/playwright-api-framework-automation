@@ -1,0 +1,17 @@
+services:
+  api-tests:
+    build:
+      context: .
+      dockerfile: Dockerfile
+
+    environment:
+      BASE_URL: ${BASE_URL:-https://restful-booker.herokuapp.com}
+      HEADLESS: ${HEADLESS:-true}
+      TIMEOUT: ${TIMEOUT:-30000}
+      TEST_USERNAME: ${TEST_USERNAME}
+      TEST_PASSWORD: ${TEST_PASSWORD}
+
+    volumes:
+      - ./playwright-report:/app/playwright-report
+      - ./test-results:/app/test-results
+      - ./allure-results:/app/allure-results

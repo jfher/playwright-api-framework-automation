@@ -11,15 +11,12 @@ test.describe('Booking Update API', () => {
     });
 
     const response = await bookingClient.updateBookingResponse(bookingId, booking, authToken);
-
     expect(response.status()).toBe(200);
 
     const body = await response.json();
-
     const updatedBooking = validateSchema(bookingSchema, body);
 
     expect(updatedBooking.firstname).toBe('Updated');
-
     expect(updatedBooking.lastname).toBe('Booking');
   });
 });

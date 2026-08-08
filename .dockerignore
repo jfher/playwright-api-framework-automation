@@ -1,0 +1,11 @@
+node_modules
+.git
+.github
+.env
+.env.*
+playwright-report
+test-results
+allure-results
+allure-report
+coverage
+README.md

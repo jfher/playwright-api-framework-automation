@@ -1,5 +1,4 @@
-import { test, expect } from '@fixtures/api.fixture';
-
+import { test, expect } from '@fixtures/api.fixture'
 import { createBookingData } from '@utils/data-generator';
 
 test.describe('Booking Validation API', () => {
@@ -9,7 +8,6 @@ test.describe('Booking Validation API', () => {
     });
 
     const response = await bookingClient.createBookingResponse(booking);
-
     expect(response.status()).toBe(200);
   });
 
@@ -23,9 +21,7 @@ test.describe('Booking Validation API', () => {
     const response = await bookingClient.createBooking(booking);
 
     expect(response.booking.firstname).toBe('QA');
-
     expect(response.booking.lastname).toBe('Automation');
-
     expect(response.booking.totalprice).toBe(999);
   });
 });

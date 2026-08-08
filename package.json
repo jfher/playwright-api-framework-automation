@@ -11,11 +11,13 @@
     "test:regression": "playwright test --grep @regression",
     "test:auth": "playwright test --grep @authentication",
     "test:contract": "playwright test --grep @contract",
+    "test:ci": "playwright test",
     "report": "playwright show-report",
     "allure:generate": "allure generate allure-results -o allure-report",
     "allure:open": "allure open allure-report",
     "lint": "eslint .",
     "format": "prettier --write .",
+    "format:check": "prettier --check .",
     "prepare": "husky"
   },
   "keywords": [
