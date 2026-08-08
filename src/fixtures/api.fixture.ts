@@ -26,9 +26,13 @@ export const test = base.extend<ApiFixtures>({
     await use(response.token);
   },
 
-  bookingId: async ({ bookingClient }, use) => {
+  bookingId: async ({ bookingClient, authToken }, use) => {
     const response = await bookingClient.createBooking(createBookingData());
-    await use(response.bookingid);
+    const bookingId = response.bookingid;
+
+    await use(bookingId);
+
+    await bookingClient.deleteBookingResponse(bookingId, authToken);
   },
 });
 
