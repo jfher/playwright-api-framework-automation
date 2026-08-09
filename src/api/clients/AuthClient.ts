@@ -1,8 +1,12 @@
-import { APIResponse } from '@playwright/test';
+import { APIRequestContext, APIResponse, TestInfo } from '@playwright/test';
 import { ApiClient } from '../ApiClient';
 import { AuthRequest, AuthResponse } from '@models/Auth';
 
 export class AuthClient extends ApiClient {
+  constructor(request: APIRequestContext, testInfo: TestInfo) {
+    super(request, testInfo);
+  }
+
   async loginResponse(credentials: AuthRequest): Promise<APIResponse> {
     return this.post('/auth', credentials);
   }

@@ -1,5 +1,6 @@
 import { test, expect } from '@fixtures/api.fixture';
 import { bookingResponseSchema } from '@schemas/booking.schema';
+import { expectStatus } from '@utils/api-assertions';
 import { createBookingData } from '@utils/data-generator';
 import { validateSchema } from '@utils/schema-validator';
 
@@ -8,9 +9,9 @@ test.describe('Booking Create API', () => {
     const booking = createBookingData();
     const response = await bookingClient.createBookingResponse(booking);
 
-    expect(response.status()).toBe(200);
-    const body = await response.json();
+    await expectStatus(response, 200);
 
+    const body = await response.json();
     const validated = validateSchema(bookingResponseSchema, body);
 
     expect(validated.bookingid).toBeGreaterThan(0);

@@ -1,4 +1,4 @@
-import { test, expect } from '@fixtures/api.fixture'
+import { test, expect } from '@fixtures/api.fixture';
 import { createBookingData } from '@utils/data-generator';
 
 test.describe('Booking Validation API', () => {

@@ -59,16 +59,16 @@ This project was created to demonstrate an API automation framework rather than 
 
 The main goals are:
 
-* Build a maintainable API automation architecture.
-* Separate API communication from test logic.
-* Implement reusable fixtures.
-* Validate API contracts at runtime.
-* Generate dynamic test data.
-* Cover positive and negative scenarios.
-* Support smoke and regression execution.
-* Produce test reports.
-* Execute tests locally and in CI.
-* Provide a reproducible Docker environment.
+- Build a maintainable API automation architecture.
+- Separate API communication from test logic.
+- Implement reusable fixtures.
+- Validate API contracts at runtime.
+- Generate dynamic test data.
+- Cover positive and negative scenarios.
+- Support smoke and regression execution.
+- Produce test reports.
+- Execute tests locally and in CI.
+- Provide a reproducible Docker environment.
 
 ---
 
@@ -106,10 +106,7 @@ They should not contain duplicated HTTP implementation.
 Example:
 
 ```typescript
-const response =
-    await bookingClient.createBookingResponse(
-        booking,
-    );
+const response = await bookingClient.createBookingResponse(booking);
 
 expect(response.status()).toBe(200);
 ```
@@ -159,12 +156,12 @@ Example:
 
 ```typescript
 export interface Booking {
-    firstname: string;
-    lastname: string;
-    totalprice: number;
-    depositpaid: boolean;
-    bookingdates: BookingDates;
-    additionalneeds?: string;
+  firstname: string;
+  lastname: string;
+  totalprice: number;
+  depositpaid: boolean;
+  bookingdates: BookingDates;
+  additionalneeds?: string;
 }
 ```
 
@@ -181,8 +178,7 @@ TypeScript can verify our code at compile time, but it cannot guarantee that an 
 Zod validates the actual response.
 
 ```typescript
-const validated =
-    bookingSchema.parse(response);
+const validated = bookingSchema.parse(response);
 ```
 
 This allows the framework to detect contract changes.
@@ -229,11 +225,11 @@ Delete booking
 
 The tests validate:
 
-* HTTP status
-* response body
-* returned identifiers
-* updated values
-* deleted resources
+- HTTP status
+- response body
+- returned identifiers
+- updated values
+- deleted resources
 
 ---
 
@@ -297,13 +293,13 @@ npm run test:regression
 
 | Area             | Positive | Negative | Contract | Smoke |
 | ---------------- | -------: | -------: | -------: | ----: |
-| Authentication   |        ✅ |        ✅ |        ✅ |     ✅ |
-| Create Booking   |        ✅ |  Planned |        ✅ |     ✅ |
-| Get Booking      |        ✅ |  Planned |        ✅ |     - |
-| Update Booking   |        ✅ |  Planned |        - |     - |
-| Delete Booking   |        ✅ |  Planned |        - |     - |
-| Response Headers |        ✅ |        - |        - |     - |
-| Data Validation  |        ✅ |  Planned |        - |     - |
+| Authentication   |       ✅ |       ✅ |       ✅ |    ✅ |
+| Create Booking   |       ✅ |  Planned |       ✅ |    ✅ |
+| Get Booking      |       ✅ |  Planned |       ✅ |     - |
+| Update Booking   |       ✅ |  Planned |        - |     - |
+| Delete Booking   |       ✅ |  Planned |        - |     - |
+| Response Headers |       ✅ |        - |        - |     - |
+| Data Validation  |       ✅ |  Planned |        - |     - |
 
 `Planned` scenarios represent future extensions of the MVP.
 
@@ -619,12 +615,11 @@ Booking data is generated dynamically.
 Example:
 
 ```typescript
-const booking =
-    createBookingData({
-        firstname: 'QA',
-        lastname: 'Automation',
-        totalprice: 999,
-    });
+const booking = createBookingData({
+  firstname: 'QA',
+  lastname: 'Automation',
+  totalprice: 999,
+});
 ```
 
 This allows tests to customize only the properties relevant to a scenario.
@@ -653,11 +648,11 @@ Contract validation belongs in schemas.
 
 Common functionality should be implemented once and reused through:
 
-* API clients
-* fixtures
-* factories
-* schemas
-* utilities
+- API clients
+- fixtures
+- factories
+- schemas
+- utilities
 
 ---
 
@@ -670,9 +665,7 @@ Example:
 ```typescript
 expect(response.status()).toBe(200);
 
-expect(
-    booking.firstname,
-).toBe(expectedFirstname);
+expect(booking.firstname).toBe(expectedFirstname);
 ```
 
 ---
@@ -710,22 +703,22 @@ The objective is to prevent broken code from reaching the main branch.
 
 The current MVP demonstrates:
 
-* Playwright API automation
-* TypeScript
-* REST API testing
-* Authentication
-* CRUD testing
-* Negative testing
-* Contract testing
-* Zod
-* Fixtures
-* Dynamic test data
-* Allure
-* ESLint
-* Prettier
-* Husky
-* Docker
-* GitHub Actions
+- Playwright API automation
+- TypeScript
+- REST API testing
+- Authentication
+- CRUD testing
+- Negative testing
+- Contract testing
+- Zod
+- Fixtures
+- Dynamic test data
+- Allure
+- ESLint
+- Prettier
+- Husky
+- Docker
+- GitHub Actions
 
 ---
 
@@ -733,19 +726,19 @@ The current MVP demonstrates:
 
 Possible future iterations include:
 
-* Advanced negative testing
-* Schema validation for every endpoint
-* API request/response logging
-* Custom Allure metadata
-* Environment-specific configuration
-* Multiple environments
-* Test data cleanup service
-* API performance testing
-* OpenAPI contract validation
-* Authentication token caching
-* Parallel execution optimization
-* Security testing
-* Dependency vulnerability scanning
+- Advanced negative testing
+- Schema validation for every endpoint
+- API request/response logging
+- Custom Allure metadata
+- Environment-specific configuration
+- Multiple environments
+- Test data cleanup service
+- API performance testing
+- OpenAPI contract validation
+- Authentication token caching
+- Parallel execution optimization
+- Security testing
+- Dependency vulnerability scanning
 
 ---
 

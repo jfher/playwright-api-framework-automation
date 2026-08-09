@@ -1,8 +1,12 @@
-import { APIResponse } from '@playwright/test';
+import { APIRequestContext, APIResponse, TestInfo } from '@playwright/test';
 import { ApiClient } from '../ApiClient';
 import { Booking, BookingResponse } from '@models/Booking';
 
 export class BookingClient extends ApiClient {
+  constructor(request: APIRequestContext, testInfo: TestInfo) {
+    super(request, testInfo);
+  }
+
   async createBookingResponse(booking: Booking): Promise<APIResponse> {
     return this.post('/booking', booking);
   }

@@ -12,16 +12,16 @@ type ApiFixtures = {
 };
 
 export const test = base.extend<ApiFixtures>({
-  authClient: async ({ request }, use) => {
-    await use(new AuthClient(request));
+  authClient: async ({ request }, use, testInfo) => {
+    await use(new AuthClient(request, testInfo));
   },
 
-  bookingClient: async ({ request }, use) => {
-    await use(new BookingClient(request));
+  bookingClient: async ({ request }, use, testInfo) => {
+    await use(new BookingClient(request, testInfo));
   },
 
-  authToken: async ({ request }, use) => {
-    const authClient = new AuthClient(request);
+  authToken: async ({ request }, use, testInfo) => {
+    const authClient = new AuthClient(request, testInfo);
     const response = await authClient.login(credentials.validUser);
     await use(response.token);
   },
