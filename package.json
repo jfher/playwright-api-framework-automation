@@ -16,6 +16,7 @@
     "allure:clean": "node src/scripts/clean-allure.cjs",
     "allure:generate": "allure generate allure-results -o allure-report",
     "allure:open": "allure open allure-report",
+    "allure:report": "npm run allure:clean && npm run test && npm run allure:generate && npm run allure:open",
     "lint": "eslint .",
     "format": "prettier --write .",
     "format:check": "prettier --check .",

@@ -20,7 +20,7 @@ test.describe('Authentication Negative API', () => {
 test.describe('Authentication Negative Tests', () => {
   for (const testCase of invalidAuthCases) {
     test(`${testCase.name}`, { tag: ['@auth', '@regression', '@negative'] }, async ({ authClient }) => {
-      const response = await authClient.loginResponse(testCase.credentials);
+      const response = await authClient.loginResponse(testCase.data);
       expect(response.status()).toBe(testCase.expectedStatus);
 
       const body = await response.json();

@@ -1,4 +1,10 @@
-export const invalidBookingIds = [
+export interface InvalidBookingIdCase {
+  name: string;
+  id: number;
+  expectedStatus: number;
+}
+
+export const invalidBookingIds: InvalidBookingIdCase[] = [
   {
     name: 'non-existing booking id',
     id: 999999999,

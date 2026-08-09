@@ -1,62 +1,64 @@
 import type { AuthRequest } from '@models/Auth';
+import { TestCase } from './test-case';
 
-export interface InvalidAuthCase {
-  name: string;
-  credentials: Partial<AuthRequest>;
-  expectedStatus: number;
-  expectedToken?: string;
-}
+export type InvalidAuthData = Partial<AuthRequest>;
 
-export const invalidAuthCases: InvalidAuthCase[] = [
+export const invalidAuthCases: TestCase<InvalidAuthData>[] = [
   {
     name: 'invalid username',
-    credentials: {
+    data: {
       username: 'invalid-user',
       password: 'password123',
     },
     expectedStatus: 200,
+    tags: ['regression'],
   },
 
   {
     name: 'invalid password',
-    credentials: {
+    data: {
       username: 'admin',
       password: 'invalid-password',
     },
     expectedStatus: 200,
+    tags: ['regression'],
   },
 
   {
     name: 'empty username',
-    credentials: {
+    data: {
       username: '',
       password: 'password123',
     },
     expectedStatus: 200,
+    tags: ['regression'],
   },
 
   {
     name: 'empty password',
-    credentials: {
+    data: {
       username: 'admin',
       password: '',
     },
     expectedStatus: 200,
+    tags: ['regression'],
   },
 
   {
     name: 'missing username',
-    credentials: {
+    data: {
       password: 'password123',
     },
     expectedStatus: 200,
+    tags: ['regression'],
   },
 
   {
     name: 'missing password',
-    credentials: {
+    data: {
       username: 'admin',
     },
     expectedStatus: 200,
+    tags: ['regression'],
   },
 ];
