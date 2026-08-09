@@ -45,13 +45,15 @@ export class ApiClient {
     return response;
   }
 
-  protected async delete(endpoint: string, token: string): Promise<APIResponse> {
+  protected async delete(endpoint: string, token?: string): Promise<APIResponse> {
     const start = Date.now();
 
     const response = await this.request.delete(endpoint, {
-      headers: {
-        Cookie: `token=${token}`,
-      },
+      headers: token
+        ? {
+            Cookie: `token=${token}`,
+          }
+        : undefined,
     });
 
     await this.logResponse('DELETE', endpoint, response, start);

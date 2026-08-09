@@ -17,5 +17,5 @@
       "@fixtures/*": ["src/fixtures/*"]
     }
   },
-  "include": ["src/**/*.ts", "tests/**/*.ts", "playwright.config.ts"]
+  "include": ["src/**/*.ts", "tests/**/*.ts", "playwright.config.ts", "src/scripts/clean-allure.cjs"]
 }

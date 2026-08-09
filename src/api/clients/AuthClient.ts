@@ -7,7 +7,7 @@ export class AuthClient extends ApiClient {
     super(request, testInfo);
   }
 
-  async loginResponse(credentials: AuthRequest): Promise<APIResponse> {
+  async loginResponse(credentials: Partial<AuthRequest>): Promise<APIResponse> {
     return this.post('/auth', credentials);
   }
 

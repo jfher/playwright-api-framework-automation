@@ -13,6 +13,7 @@
     "test:contract": "playwright test --grep @contract",
     "test:ci": "playwright test",
     "report": "playwright show-report",
+    "allure:clean": "node src/scripts/clean-allure.cjs",
     "allure:generate": "allure generate allure-results -o allure-report",
     "allure:open": "allure open allure-report",
     "lint": "eslint .",

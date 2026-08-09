@@ -43,11 +43,19 @@ export class BookingClient extends ApiClient {
     return response.json();
   }
 
+  async updateBookingWithoutAuth(bookingId: number, booking: Booking): Promise<APIResponse> {
+    return this.put(`/booking/${bookingId}`, booking);
+  }
+
   async deleteBookingResponse(bookingId: number, token: string): Promise<APIResponse> {
     return this.delete(`/booking/${bookingId}`, token);
   }
 
   async deleteBooking(bookingId: number, token: string) {
     await this.delete(`/booking/${bookingId}`, token);
+  }
+
+  async deleteBookingWithoutAuth(bookingId: number): Promise<APIResponse> {
+    return this.request.delete(`/booking/${bookingId}`);
   }
 }
