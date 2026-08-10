@@ -20,8 +20,7 @@ export const test = base.extend<ApiFixtures>({
     await use(new BookingClient(request, testInfo));
   },
 
-  authToken: async ({ request }, use, testInfo) => {
-    const authClient = new AuthClient(request, testInfo);
+  authToken: async ({ authClient }, use) => {
     const response = await authClient.login(credentials.validUser);
     await use(response.token);
   },

@@ -1,7 +1,8 @@
 import { credentials } from '@config/credentials';
-import { environment } from '@config/environment';
 import { test, expect } from '@fixtures/api.fixture';
+import { authResponseSchema } from '@schemas/auth.schema';
 import { attachJson } from '@utils/allure';
+import { expectStatus } from '@utils/api-assertions';
 
 test.describe('Authentication API', () => {
   test('User should login successfully', { tag: ['@authentication', '@smoke'] }, async ({ authClient }) => {
@@ -9,5 +10,18 @@ test.describe('Authentication API', () => {
     await attachJson('Authentication Response', response);
 
     expect(response.token).toBeTruthy();
+  });
+
+  test('should authenticate with valid credentials', { tag: ['@authentication', '@smoke'] }, async ({ authClient }) => {
+    const response = await authClient.loginResponse(credentials.validUser);
+    expectStatus(response, 200);
+
+    const body = await response.json();
+    const result = authResponseSchema.safeParse(body);
+
+    expect(result.success, 'Expected a valid authentication response').toBe(true);
+    if (result.success) {
+      expect(result.data.token).toBeTruthy();
+    }
   });
 });

@@ -43,3 +43,4 @@ export const bookingPriceBoundaryCases: TestCase<Booking>[] = [
     tags: ['regression'],
   },
 ];
+//! todo pr 12
