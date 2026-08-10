@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "playwright test",
+    "test-instanced": "node scripts/generate-allure-env.cjs && playwright test",
     "test:ui": "playwright test --ui",
     "test:debug": "playwright test --debug",
     "test:smoke": "playwright test --grep @smoke",
@@ -14,7 +15,7 @@
     "test:e2e": "playwright test --grep @e2e",
     "test:ci": "playwright test",
     "report": "playwright show-report",
-    "allure:clean": "node src/scripts/clean-allure.cjs",
+    "allure:clean": "node scripts/clean-allure.cjs",
     "allure:generate": "allure generate allure-results -o allure-report",
     "allure:open": "allure open allure-report",
     "allure:report": "npm run allure:clean && npm run test && npm run allure:generate && npm run allure:open",

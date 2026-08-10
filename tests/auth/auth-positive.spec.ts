@@ -3,9 +3,27 @@ import { test, expect } from '@fixtures/api.fixture';
 import { authResponseSchema } from '@schemas/auth.schema';
 import { attachJson } from '@utils/allure';
 import { expectStatus } from '@utils/api-assertions';
+import { setEpic, setFeature, setStory } from '@utils/reporting/allure';
+import { severityByTag } from '@utils/reporting/test-metadata';
 
 test.describe('Authentication API', () => {
   test('User should login successfully', { tag: ['@authentication', '@smoke'] }, async ({ authClient }) => {
+    await setEpic(
+      'Authentication',
+    );
+
+    await setFeature(
+      'Login',
+    );
+
+    await setStory(
+      'Valid credentials',
+    );
+
+    await severityByTag(
+      ['@smoke'],
+    );
+
     const response = await authClient.login(credentials.validUser);
     await attachJson('Authentication Response', response);
 
@@ -13,6 +31,26 @@ test.describe('Authentication API', () => {
   });
 
   test('should authenticate with valid credentials', { tag: ['@authentication', '@smoke'] }, async ({ authClient }) => {
+
+    await setEpic(
+      'Authentication',
+    );
+
+
+    await setFeature(
+      'Login',
+    );
+
+
+    await setStory(
+      'Valid credentials',
+    );
+
+
+    await severityByTag(
+      ['@smoke'],
+    );
+
     const response = await authClient.loginResponse(credentials.validUser);
     expectStatus(response, 200);
 

@@ -1,0 +1,13 @@
+[
+  {
+    "name": "Assertion Failed",
+    "matchedStatuses": ["failed"],
+    "messageRegex": ".*expect.*"
+  },
+
+  {
+    "name": "API Error",
+    "matchedStatuses": ["failed"],
+    "messageRegex": ".*status.*"
+  }
+]

@@ -1,8 +1,26 @@
 import { test, expect } from '@fixtures/api.fixture';
 import { createBookingData } from '@utils/data-generator';
+import { setEpic, setFeature, setStory } from '@utils/reporting/allure';
+import { severityByTag } from '@utils/reporting/test-metadata';
 
 test.describe('Booking Validation API', () => {
   test('Should create booking with minimum valid data', { tag: ['@booking', '@validation', '@regression'] }, async ({ bookingClient }) => {
+    await setEpic(
+      'Booking',
+    );
+
+    await setFeature(
+      'Booking Validation',
+    );
+
+    await setStory(
+      'Should create booking with minimum valid data',
+    );
+
+    await severityByTag(
+      ['@regression', '@validation'],
+    );
+
     const booking = createBookingData({
       additionalneeds: undefined,
     });
@@ -12,6 +30,22 @@ test.describe('Booking Validation API', () => {
   });
 
   test('Should preserve provided booking data', { tag: ['@booking', '@validation', '@regression'] }, async ({ bookingClient }) => {
+    await setEpic(
+      'Booking',
+    );
+
+    await setFeature(
+      'Booking Validation',
+    );
+
+    await setStory(
+      'Should preserve provided booking data',
+    );
+
+    await severityByTag(
+      ['@regression', '@validation'],
+    );
+
     const booking = createBookingData({
       firstname: 'QA',
       lastname: 'Automation',
